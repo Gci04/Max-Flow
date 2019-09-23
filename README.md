@@ -20,6 +20,10 @@ To run tests :
 ```bash
 ./a.out
 ```
+To run with optional arguments : By default the number of vertices in the flow network is 300
+```
+./a.out [-NUM_VERTICES]
+```
 
 ## References
 1. T.H. Cormen, C.E. Leiserson, R.L. Rivest, C. Stein. Introduction to algorithms / third edition.

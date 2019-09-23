@@ -29,35 +29,20 @@ Vertex * Network::getSource() const{
 const std::vector<Vertex*> Network:: getVertices() const {
 	return vertices;
 }
-/*void Network::InitializePreflow( Network *G)
-{
-	source->setHeight(vertices.size());
-	std::vector<Edge> SourceOutEdges = source->getEdgesOut();
-	for (size_t j = 0; j < source->sizeEdgesOut(); j++) {
-		SourceOutEdges[j].setValue(SourceOutEdges[j].getCapacity());
-		SourceOutEdges[j].getEnd()->setEcxess(SourceOutEdges[j].getCapacity());
-	}
 
-}*/
-/*void Network::InitPreflow(Network * G)
-{
-	source->setHeight(vertices.size());
-	std::vector<Edge> SourceOutEdges = source->getEdgesOut();
-	for (size_t j = 0; j < source->sizeEdgesOut(); j++) {
-		SourceOutEdges[j].setValue(SourceOutEdges[j].getCapacity());
-		SourceOutEdges[j].getEnd()->setEcxess(SourceOutEdges[j].getCapacity());
-	}
-
-}*/
 void Network::changeEdge(Edge newEdge) {
 	Vertex* start = newEdge.getStart();
 	Vertex* end = newEdge.getEnd();
 	std::vector<Edge> edgesOut = start->getEdgesOut();
-	for (size_t i = 0; i < edgesOut.size(); i++)
-		if (edgesOut[i].getEnd() == end)
+	for (size_t i = 0; i < edgesOut.size(); i++){
+		if (edgesOut[i].getEnd() == end){
 			start->setEdgeOut(i, newEdge);
+		}
+	}
 	std::vector<Edge> edgesIn = end->getEdgesIn();
-	for (size_t i = 0; i < edgesIn.size(); i++)
-		if (edgesIn[i].getStart() == start)
+	for (size_t i = 0; i < edgesIn.size(); i++){
+		if (edgesIn[i].getStart() == start){
 			end->setEdgeIn(i, newEdge);
+		}
+	}
 }
